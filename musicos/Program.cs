@@ -17,7 +17,7 @@
 
 class Cantante:Musico
 {
-    public string mic {get; set;}
+    public string ?mic {get; set;}
     public Cantante(string n):base(n)
     {
         this.nombre=n;
