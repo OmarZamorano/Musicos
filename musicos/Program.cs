@@ -45,8 +45,8 @@ internal class Program
         List<Musico> Beatles=new List<Musico>();
         Beatles.Add(new Musico("Paul McCartney"));
         Beatles.Add(new Musico("John Lennon"));
-        Beatles.Add(new Bajista("Jorsh Harrisson","Höfner"));
-        Beatles.Add(new Baterista("Ringo Star","LudWig"));
+        Beatles.Add(new Bajista("George Harrison","Höfner"));
+        Beatles.Add(new Baterista("Ringo Starr","LudWig"));
 
         foreach(var m in Beatles)
         {
