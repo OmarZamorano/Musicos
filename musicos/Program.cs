@@ -1,4 +1,4 @@
-﻿class Musico
+﻿abstract class Musico
 {
     public string nombre{get; set;}
     public Musico(string n)
@@ -9,11 +9,25 @@
     {
         Console.WriteLine("Hola soy "+nombre);
     }
-    public virtual void Toca()
+    public /*virtual*/ abstract void Toca();
+    //{
+        //Console.WriteLine($"{nombre} tocando su instrumento");
+    //}
+}
+
+class Cantante:Musico
+{
+    public string mic {get; set;}
+    public Cantante(string n):base(n)
     {
-        Console.WriteLine($"{nombre} tocando su instrumento");
+        this.nombre=n;
+    }
+    public override void Toca()
+    {
+        Console.WriteLine(nombre+" esta cantando");
     }
 }
+
 class Bajista:Musico
 {
     public string bajo{get; set;}
@@ -43,8 +57,8 @@ internal class Program
     private static void Main(string[] args)
     {
         List<Musico> Beatles=new List<Musico>();
-        Beatles.Add(new Musico("Paul McCartney"));
-        Beatles.Add(new Musico("John Lennon"));
+        Beatles.Add(new Cantante("Paul McCartney"));
+        Beatles.Add(new Cantante("John Lennon"));
         Beatles.Add(new Bajista("George Harrison","Höfner"));
         Beatles.Add(new Baterista("Ringo Starr","LudWig"));
 
@@ -53,21 +67,7 @@ internal class Program
            m.Saluda(); 
            m.Toca();
         }
-
-        Musico m1 = new Musico("Paul McCartney");
-        //m1.Saluda();
-        //m1.Toca();
-
-        Musico m2 = new Musico("John Lennon");
-        //m2.Saluda();
-        //m2.Toca();
-
-        Bajista m3 = new Bajista("Jorsh Harrisson","LudWig");
-        //m3.Saluda();
-        //m3.Toca();
-
-        Baterista m4= new Baterista("Ringo Star","LudWig");
-        //m4.Saluda();
-        //m4.Toca();
     }
 }
+//los metodos abstractos no tienen implementacion
+//se delegan de manera obligatoria
