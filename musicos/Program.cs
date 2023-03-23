@@ -5,9 +5,13 @@
     {
         this.nombre=n;
     }
-    public void Saluda()
+    public virtual string setSaluda()
     {
-        Console.WriteLine("Hola soy "+nombre);
+        return "Hola soy "+nombre;
+    }
+    public virtual void getSaluda()
+    {
+        Console.WriteLine(setSaluda());
     }
     public /*virtual*/ abstract void Toca();
     //{
@@ -22,6 +26,10 @@ class Cantante:Musico
     {
         this.nombre=n;
     }
+    public override void getSaluda()
+    {
+        Console.WriteLine(setSaluda()+" y soy cantante");
+    }
     public override void Toca()
     {
         Console.WriteLine(nombre+" esta cantando");
@@ -35,6 +43,10 @@ class Bajista:Musico
     {
         this.bajo=b;
     }
+    public override void getSaluda()
+    {
+        Console.WriteLine(setSaluda()+" y soy bajista");
+    }
     public override void Toca()
     {
         Console.WriteLine($"{nombre} tocando su bajo");
@@ -46,6 +58,10 @@ class Baterista:Musico
     public Baterista(string n, string b):base(n)
     {
         this.bateria=b;
+    }
+    public override void getSaluda()
+    {
+        Console.WriteLine(setSaluda()+" y soy baterista");
     }
     public override void Toca()
     {
@@ -64,7 +80,7 @@ internal class Program
 
         foreach(var m in Beatles)
         {
-           m.Saluda(); 
+           m.getSaluda(); 
            m.Toca();
         }
     }
